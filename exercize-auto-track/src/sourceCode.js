@@ -24,18 +24,5 @@
 // import { tracker as tt } from 'tracker';
 // import * as tt from 'tracker';
 // import 'ttt';
-function aa() {
-  console.log('aa');
-}
-
-const fn1 = () => console.log(11);
-class User {
-  fn1() {}
-}
-
-const fn2 = function () {};
-const fn3 = () => {};
-
-(() => {
-  console.log(11);
-})();
+const fn3 = () => console.log(11);
+fn3();

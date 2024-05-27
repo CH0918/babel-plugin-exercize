@@ -1,6 +1,9 @@
-const { declare } = require('@babel/helper-plugin-utils');
-const importModule = require('@babel/helper-module-imports');
-const { template } = require('@babel/core');
+// const { declare } = require('@babel/helper-plugin-utils');
+// const importModule = require('@babel/helper-module-imports');
+// const { template } = require('@babel/core');
+import { declare } from '@babel/helper-plugin-utils';
+import importModule from '@babel/helper-module-imports';
+// import { template } from '@babel/core';
 
 const autoTrackPlugin2 = declare((api, options, dirname) => {
   // 判断是不是babel7
@@ -32,6 +35,7 @@ const autoTrackPlugin2 = declare((api, options, dirname) => {
 
           // 如果没有导入tracker方法，就导入tracker方法
           if (!state.trackerFunctionName) {
+            console.log('111');
             const trackerFunctionName = importModule.addDefault(
               path,
               options.trackerPath,
@@ -55,11 +59,13 @@ const autoTrackPlugin2 = declare((api, options, dirname) => {
           )({
             BODY: blockStatement.node,
           });
+          console.log(222);
           blockStatement.replaceWith(newBlockStatement);
+          curPath.skip();
         } else {
           // 在函数体的第一行加上tracker方法
           blockStatement.node.body.unshift(
-            template.statement(`${state.trackerFunctionName}();`)()
+            api.template.statement(`${state.trackerFunctionName}();`)()
           );
         }
       },
@@ -67,4 +73,5 @@ const autoTrackPlugin2 = declare((api, options, dirname) => {
   };
 });
 
-module.exports = autoTrackPlugin2;
+// module.exports = autoTrackPlugin2;
+export default autoTrackPlugin2;

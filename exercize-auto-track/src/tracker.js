@@ -1,3 +1,3 @@
-module.exports = function tracker() {
+export default function tracker() {
   console.log('tracker');
-};
+}
