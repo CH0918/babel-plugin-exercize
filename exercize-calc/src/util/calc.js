@@ -1,11 +1,11 @@
-function addCalc(a, b) {
+export function addCalc(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     return a + b;
   }
   let max = calcMax(a, b);
   return (a * max + b * max) / max;
 }
-function minusCalc(a, b) {
+export function minusCalc(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     return a - b;
   }
@@ -13,20 +13,20 @@ function minusCalc(a, b) {
   return (a * max - b * max) / max;
 }
 
-function multCalc(a, b) {
+export function multCalc(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     return a * b;
   }
   let max = calcMax(a, b);
-  return (a * max * (b * max)) / max;
+  return (a * max * (b * max)) / (max * max);
 }
 
-function diviCalc(a, b) {
+export function diviCalc(a, b) {
   if (typeof a !== 'number' || typeof b !== 'number') {
     return a / b;
   }
   let max = calcMax(a, b);
-  return (a * max) / (b * max) / max;
+  return (a * max) / (b * max);
 }
 
 function calcDecimalLength(decimal) {
@@ -44,4 +44,4 @@ function calcMax(a, b) {
   return max;
 }
 
-export { addCalc, minusCalc, multCalc, diviCalc };
+// export { addCalc, minusCalc, multCalc, diviCalc };

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx', // 入口文件
+  mode: 'none',
   output: {
     filename: 'bundle.js', // 输出文件名
     path: path.resolve(__dirname, 'dist'), // 输出路径
@@ -53,7 +54,7 @@ module.exports = {
   devServer: {
     // contentBase: path.resolve(__dirname, 'dist'), // 开发服务器的内容目录
     compress: true, // 启用 gzip 压缩
-    port: 9000, // 服务器端口
+    port: 9001, // 服务器端口
   },
   mode: 'development', // 模式设置为开发模式
 };
