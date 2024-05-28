@@ -25,35 +25,10 @@ function _interopRequireDefault(obj) { _tracker(); _tracker(); return obj && obj
 // import { tracker as tt } from 'tracker';
 // import * as tt from 'tracker';
 // import 'ttt';
-function aa() {
-  _tracker();
-
-  console.log('aa');
-}
-
-const fn1 = () => {
+const fn3 = () => {
   _tracker();
 
   return console.log(11);
 };
 
-class User {
-  fn1() {
-    _tracker();
-  }
-
-}
-
-const fn2 = function () {
-  _tracker();
-};
-
-const fn3 = () => {
-  _tracker();
-};
-
-(() => {
-  _tracker();
-
-  console.log(11);
-})();
+fn3();
